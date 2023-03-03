@@ -3,17 +3,10 @@ using M1S3_SistemaBanco;
 
 List<Cliente> clientes = new List<Cliente>();
 
-clientes.Add(new Cliente("Vitor", "123456", "vitor@email","123", "rua",
-            new DateTime(2002, 5, 15), 1));
-            
-clientes.Add(new Cliente("Fernando", "123456", "Fernando@email","123", "rua",
-            new DateTime(2002, 5, 15), 2));
-            
-clientes.Add(new Cliente("Vanessa", "123456", "Vanessa@email","123", "rua",
-            new DateTime(2002, 5, 15), 3));
-
-clientes.Add(new Cliente("Lucas", "123456", "Lucas@email","123", "rua",
-            new DateTime(2002, 5, 15), 4));
+clientes.Add(new PessoaFisica("Vitor", "123456", "vitor@email","666", "rua 1", new DateTime(2002, 5, 15), 1));
+clientes.Add(new PessoaFisica("Fernando", "654321", "Fernando@email","777", "rua 2", new DateTime(2002, 5, 15), 2));
+clientes.Add(new PessoaFisica("Vanessa", "123123", "Vanessa@email","888", "rua 3", new DateTime(2002, 5, 15), 3));
+clientes.Add(new PessoaFisica("Lucas", "321321", "Lucas@email","999", "rua 4", new DateTime(2002, 5, 15), 4));
 
 
 
@@ -28,7 +21,11 @@ do{
   opcao = Console.ReadLine();
 
   if(opcao == "1"){
-    CriarConta();
+    Console.WriteLine("Vamos criar uma conta! Informe o tipo de conta que deseja criar:");
+    Console.WriteLine("1 - Pessoa Fisica");
+    Console.WriteLine("2 - Pessoa Juridica");
+    string tipoConta = Console.ReadLine();
+    CriarConta(tipoConta);
   }
   else if (opcao == "5"){
     ExibirClientes();
@@ -43,9 +40,6 @@ do{
   Console.WriteLine("Tecle Enter para continuar");
   Console.ReadLine();
 } while(opcao != "4");
-
-
-
 
 void AdicionarTransacao(){
   Console.WriteLine("Qual a conta?");
@@ -87,21 +81,7 @@ void ExibirExtrato(){
 
 }
 
-
-
-Cliente BuscarClientePorNumeroDeConta (int numeroConta){; 
-  foreach(Cliente cliente in clientes){
-    if(cliente.NumeroConta == numeroConta){
-      return cliente;
-    }
-  }
-  // mesma coisa que o foreach
-  // for(int i =0; i < clientes.Count; i++){
-  //    if(clientes[i].NumeroConta == numeroConta);
-  //     return clientes[i];
-  // }
-  return null;
-}
+Cliente BuscarClientePorNumeroDeConta (int numeroConta) => clientes.Find(x => x.NumeroConta == numeroConta);
 
 void ExibirClientes(){
    Console.WriteLine("Número da conta        | Nome         | CPF    ");
@@ -110,26 +90,31 @@ void ExibirClientes(){
   }
 }
 
-void CriarConta(){
-    Cliente cliente = new Cliente();
-    Console.WriteLine("Data de Nascimento do cliente:");
-    cliente.DataNascimento = DateTime.Parse(Console.ReadLine());
-    if(!cliente.EhMaior()){
-      Console.WriteLine("não é possivel abrir a conta pois o CLiente é menor de idade");
-      return ;
+void CriarConta(string tipoConta){
+    if(tipoConta=="1"){
+      PessoaFisica cliente = new PessoaFisica();
+      Console.WriteLine("Data de Nascimento do cliente:");
+      cliente.DataNascimento = DateTime.Parse(Console.ReadLine());
+      if(!cliente.EhMaior()){
+        Console.WriteLine("Não é possivel abrir a conta pois o CLiente é menor de idade.");
+        return ;
+      }
+      Console.WriteLine("A idade do cliente é " + cliente.Idade);
+      Console.WriteLine("Nome do cliente:");
+      cliente.Nome = Console.ReadLine();
+      Console.WriteLine("CPF do cliente:");
+      cliente.CPF = Console.ReadLine();
+      Console.WriteLine("Endereco do cliente:");
+      cliente.Endereco = Console.ReadLine();
+      Console.WriteLine("Telefone do cliente:");
+      cliente.Telefone = Console.ReadLine();
+      Console.WriteLine("Email do cliente:");
+      cliente.Email = Console.ReadLine();
+      Console.WriteLine("Numero Da Conta");
+      cliente.NumeroConta = int.Parse(Console.ReadLine());
+      clientes.Add(cliente);
+
+    }else if(tipoConta=="2"){
+      //PessoaJuridica cliente = new PessoaJuridica(); criar -----
     }
-    Console.WriteLine("A idade do cliente é " + cliente.Idade);
-    Console.WriteLine("Nome do cliente:");
-    cliente.Nome = Console.ReadLine();
-    Console.WriteLine("CPF do cliente:");
-    cliente.CPF = Console.ReadLine();
-    Console.WriteLine("Endereco do cliente:");
-    cliente.Endereco = Console.ReadLine();
-    Console.WriteLine("Telefone do cliente:");
-    cliente.Telefone = Console.ReadLine();
-    Console.WriteLine("Email do cliente:");
-    cliente.Email = Console.ReadLine();
-    Console.WriteLine("Numero Da Conta");
-    cliente.NumeroConta = int.Parse(Console.ReadLine());
-    clientes.Add(cliente);
 }
