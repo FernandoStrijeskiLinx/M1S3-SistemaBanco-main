@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace M1S3_SistemaBanco
 {
-    public class ClienteServico
+    public class ClienteServico : IClienteServico
     {
         public static List<Cliente> clientes = new List<Cliente>();
         public Cliente BuscarClientePorNumeroDeConta(int numeroConta) => clientes.Find(x => x.NumeroConta == numeroConta);

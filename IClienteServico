@@ -1,0 +1,7 @@
+using M1S3_SistemaBanco;
+public interface IClienteServico
+{
+    Cliente BuscarClientePorNumeroDeConta(int numeroConta);
+    void CriarConta(string tipoConta);
+    void ExibirClientes();
+}
