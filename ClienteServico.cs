@@ -7,6 +7,11 @@ namespace M1S3_SistemaBanco
 {
     public class ClienteServico
     {
+        public ClienteServico()
+        {
+            
+        }
+        
         public static List<Cliente> clientes = new List<Cliente>();
         public static Cliente BuscarClientePorNumeroDeConta(int numeroConta) => clientes.Find(x => x.NumeroConta == numeroConta);
 
