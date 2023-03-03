@@ -1,6 +1,8 @@
 ﻿using System.Globalization;
 using M1S3_SistemaBanco;
 
+ClienteServico clienteServico = new ClienteServico();
+
 ClienteServico.clientes.Add(new PessoaFisica("Vitor", "123456", "vitor@email", "666", "rua 1", new DateTime(2002, 5, 15), 1));
 ClienteServico.clientes.Add(new PessoaFisica("Fernando", "654321", "Fernando@email", "777", "rua 2", new DateTime(2002, 5, 15), 2));
 ClienteServico.clientes.Add(new PessoaFisica("Vanessa", "123123", "Vanessa@email", "888", "rua 3", new DateTime(2002, 5, 15), 3));
@@ -23,11 +25,11 @@ do
         Console.WriteLine("1 - Pessoa Fisica");
         Console.WriteLine("2 - Pessoa Juridica");
         string tipoConta = Console.ReadLine();
-        ClienteServico.CriarConta(tipoConta);
+        clienteServico.CriarConta(tipoConta);
     }
     else if (opcao == "5")
     {
-        ClienteServico.ExibirClientes();
+        clienteServico.ExibirClientes();
     }
     else if (opcao == "2")
     {
@@ -47,7 +49,7 @@ void AdicionarTransacao()
     Console.WriteLine("Qual a conta?");
     int numeroConta = int.Parse(Console.ReadLine());
 
-    Cliente contaCliente = ClienteServico.BuscarClientePorNumeroDeConta(numeroConta);
+    Cliente contaCliente = clienteServico.BuscarClientePorNumeroDeConta(numeroConta);
 
     if (contaCliente == null)
     {
@@ -68,7 +70,7 @@ void ExibirExtrato()
     Console.WriteLine("Qual a conta?");
     int numeroConta = int.Parse(Console.ReadLine());
 
-    Cliente contaCliente = ClienteServico.BuscarClientePorNumeroDeConta(numeroConta);
+    Cliente contaCliente = clienteServico.BuscarClientePorNumeroDeConta(numeroConta);
 
     if (contaCliente == null)
     {

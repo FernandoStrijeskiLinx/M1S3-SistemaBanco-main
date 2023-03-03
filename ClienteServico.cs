@@ -7,15 +7,10 @@ namespace M1S3_SistemaBanco
 {
     public class ClienteServico
     {
-        public ClienteServico()
-        {
-            
-        }
-        
         public static List<Cliente> clientes = new List<Cliente>();
-        public static Cliente BuscarClientePorNumeroDeConta(int numeroConta) => clientes.Find(x => x.NumeroConta == numeroConta);
+        public Cliente BuscarClientePorNumeroDeConta(int numeroConta) => clientes.Find(x => x.NumeroConta == numeroConta);
 
-        public static void ExibirClientes()
+        public void ExibirClientes()
         {
             Console.WriteLine("Número da conta        | Nome         | CPF    ");
             for (int i = 0; i < clientes.Count; i++)
@@ -24,7 +19,7 @@ namespace M1S3_SistemaBanco
             }
         }
 
-        public static void CriarConta(string tipoConta)
+        public void CriarConta(string tipoConta)
         {
             if (tipoConta == "1")
             {
