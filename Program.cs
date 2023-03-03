@@ -96,7 +96,7 @@ void CriarConta(string tipoConta){
       Console.WriteLine("Data de Nascimento do cliente:");
       cliente.DataNascimento = DateTime.Parse(Console.ReadLine());
       if(!cliente.EhMaior()){
-        Console.WriteLine("Não é possivel abrir a conta pois o CLiente é menor de idade.");
+        Console.WriteLine("Não é possivel abrir a conta pois o Cliente é menor de idade.");
         return ;
       }
       Console.WriteLine("A idade do cliente é " + cliente.Idade);
