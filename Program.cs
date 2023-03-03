@@ -18,8 +18,8 @@ clientes.Add(new Cliente("Lucas", "123456", "Lucas@email","123", "rua",
 
 
 string opcao;
-do{
-  Console.WriteLine("Bem vindos ao Banco FULL STACK BANCK, escolha uma opção");
+do{  
+  Console.WriteLine("Bem vindos ao Banco FULL STACK BANK, escolha uma opção");
   Console.WriteLine("1 - Criar Conta ");
   Console.WriteLine("2 - Adicionar Transacao");
   Console.WriteLine("3 - Consultar Extrato");
