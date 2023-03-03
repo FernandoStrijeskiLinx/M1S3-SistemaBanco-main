@@ -16,7 +16,7 @@ namespace M1S3_SistemaBanco
         {
             
         }
-        public PessoaFisica(string nome, string cpf, string email, string telefone, string end, DateTime dtNascimento,int numeroConta ) : base(email, telefone, end, numeroConta )
+        public PessoaFisica(string nome, string cpf, string email, string telefone, string end, DateTime dtNascimento, int numeroConta) : base(email, telefone, end, numeroConta )
         {
             Nome = nome;
             CPF = cpf;
