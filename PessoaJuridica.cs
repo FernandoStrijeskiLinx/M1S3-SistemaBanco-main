@@ -12,14 +12,14 @@ namespace M1S3_SistemaBanco
 
         public PessoaJuridica()
         {
-            
+
         }
-        public PessoaJuridica(string razaoSocial, string cnpj, string email, string telefone, string end, DateTime dtNascimento, int numeroConta) : base(email, telefone, end, numeroConta )
+        public PessoaJuridica(string razaoSocial, string cnpj, string email, string telefone, string end, DateTime dtNascimento, int numeroConta) : base(email, telefone, end, numeroConta)
         {
             RazaoSocial = razaoSocial;
             CNPJ = cnpj;
         }
 
-        public override string ResumoCliente() =>  $"{base.ResumoCliente} | {RazaoSocial} | {CNPJ}";
+        public override string ResumoCliente() => $"{base.ResumoCliente} | {RazaoSocial} | {CNPJ}";
     }
 }
